@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humayra Rashid — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Hind+Siliguri:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #16232F;
+    --ink-2: #1D2E3D;
+    --parchment: #F1ECDF;
+    --parchment-dim: #C9C2AC;
+    --gold: #BE9A4E;
+    --gold-soft: rgba(190,154,78,0.18);
+    --line: rgba(241,236,223,0.14);
+    --serif: 'Source Serif 4', 'Hind Siliguri', serif;
+    --sans: 'Inter', 'Hind Siliguri', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .mark{
+    display:inline-block;
+    width:44px; height:44px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    position:relative;
+    margin-bottom:32px;
+  }
+  .hero .mark::after{
+    content:"H";
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif);
+    font-size:18px;
+    color:var(--gold);
+  }
+  h1.name{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.2rem, 5vw, 3.1rem);
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+    color:var(--parchment);
+  }
+  .role{
+    font-size:1.05rem;
+    color:var(--gold);
+    margin:0 0 6px;
+  }
+  .institute{
+    font-size:0.95rem;
+    color:var(--parchment-dim);
+    margin:0;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.5rem;
+    margin:0 0 28px;
+    color:var(--parchment);
+    position:relative;
+    padding-bottom:16px;
+  }
+  h2::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:36px; height:2px;
+    background:var(--gold);
+  }
+
+  /* ---------- About ---------- */
+  .about p{
+    font-size:1.05rem;
+    color:var(--parchment-dim);
+    max-width:60ch;
+  }
+
+  /* ---------- Skills ---------- */
+  .skill-group{
+    margin-bottom:32px;
+  }
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group-title{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    color:var(--gold);
+    margin:0 0 14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+  }
+  .skills-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 12px;
+    padding:0; margin:0; list-style:none;
+  }
+  .skills-list li{
+    font-family:var(--serif);
+    font-size:0.98rem;
+    padding:8px 18px;
+    border:1px solid var(--gold-soft);
+    border-radius:2px;
+    color:var(--parchment);
+  }
+
+  /* ---------- Experience ---------- */
+  .exp-item{
+    padding:22px 0 22px 22px;
+    border-left:2px solid var(--gold-soft);
+    margin-bottom:4px;
+  }
+  .exp-item + .exp-item{border-top:1px solid var(--line);}
+  .exp-role{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    color:var(--parchment);
+    margin:0 0 8px;
+  }
+  .exp-desc{
+    font-size:0.98rem;
+    color:var(--parchment-dim);
+    margin:0;
+    max-width:58ch;
+  }
+
+  /* ---------- Education ---------- */
+  .edu-item{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px 20px;
+    padding:20px 0;
+  }
+  .edu-item + .edu-item{border-top:1px solid var(--line);}
+  .edu-degree{
+    font-family:var(--serif);
+    font-size:1.1rem;
+    color:var(--parchment);
+    margin:0 0 4px;
+  }
+  .edu-place{
+    font-size:0.92rem;
+    color:var(--parchment-dim);
+    margin:0;
+  }
+  .edu-status{
+    font-size:0.85rem;
+    color:var(--gold);
+    text-align:right;
+    white-space:nowrap;
+    align-self:start;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    padding:64px 0 96px;
+  }
+  .contact p{
+    color:var(--parchment-dim);
+    margin:0 0 20px;
+    max-width:50ch;
+  }
+  .contact a.email{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--serif);
+    font-size:1.2rem;
+    color:var(--parchment);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:4px;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .contact a.email:hover{
+    color:var(--gold);
+  }
+  .contact a.email:focus-visible,
+  a:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  footer{
+    padding:28px 0 48px;
+    font-size:0.82rem;
+    color:var(--parchment-dim);
+    opacity:0.6;
+  }
+
+  @media (max-width:520px){
+    .wrap{padding:0 22px;}
+    header.hero{padding:64px 0 48px;}
+    section{padding:40px 0;}
+    .edu-item{grid-template-columns:1fr;}
+    .edu-status{text-align:left;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .contact a.email{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="hero">
+      <span class="mark" aria-hidden="true"></span>
+      <h1 class="name">Humayra Rashid</h1>
+      <p class="role">M.Ed Student</p>
+      <p class="institute">Institute of Education and Research, University of Dhaka</p>
+    </header>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>I'm Humayra Rashid, an M.Ed student at the Institute of Education and Research, University of Dhaka. My interest and experience span both teaching and academic research, shaped through hands-on classroom practice as well as research-oriented work.</p>
+    </section>
+
+    <section class="interests">
+      <h2>Research Interests</h2>
+      <ul class="skills-list">
+        <li>Inclusive Education</li>
+        <li>Curriculum Development</li>
+        <li>Teacher Training</li>
+        <li>Classroom-based Research</li>
+        <li>Educational Assessment</li>
+      </ul>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Teaching</h3>
+        <ul class="skills-list">
+          <li>Teaching</li>
+          <li>Lesson Planning</li>
+          <li>Curriculum Development</li>
+          <li>Classroom Management</li>
+          <li>Student Assessment &amp; Evaluation</li>
+          <li>Development of Instructional Materials</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Research</h3>
+        <ul class="skills-list">
+          <li>Academic Research</li>
+          <li>Qualitative Research</li>
+          <li>Quantitative &amp; Statistical Analysis</li>
+          <li>Data Collection</li>
+          <li>Literature Review</li>
+          <li>SPSS</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">General</h3>
+        <ul class="skills-list">
+          <li>Communication</li>
+          <li>Report Writing</li>
+          <li>Presentation Skills</li>
+          <li>Time Management</li>
+          <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="experience">
+      <h2>Experience</h2>
+
+      <div class="exp-item">
+        <h3 class="exp-role">Intern Teacher</h3>
+        <p class="exp-desc">Gained hands-on classroom teaching experience as part of the B.Ed programme — involved in lesson planning, conducting classes, and assessing students.</p>
+      </div>
+
+      <div class="exp-item">
+        <h3 class="exp-role">Research Trainee</h3>
+        <p class="exp-desc">Worked as a trainee in the educational research process — gained practical experience in data collection, analysis, and applying research methodology.</p>
+      </div>
+
+      <div class="exp-item">
+        <h3 class="exp-role">Field Work</h3>
+        <p class="exp-desc">Took part in visiting educational institutions and collecting field-level data, which played an important role in understanding real classroom and school environments.</p>
+      </div>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+
+      <div class="edu-item">
+        <div>
+          <p class="edu-degree">M.Ed</p>
+          <p class="edu-place">Institute of Education and Research, University of Dhaka · Session 2024–25</p>
+        </div>
+        <span class="edu-status">Running</span>
+      </div>
+
+      <div class="edu-item">
+        <div>
+          <p class="edu-degree">B.Ed</p>
+          <p class="edu-place">Institute of Education and Research, University of Dhaka</p>
+        </div>
+        <span class="edu-status">Completed, Feb 2026</span>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out directly for any inquiries —</p>
+      <a class="email" href="mailto:tasmia.rashid10@gmail.com">tasmia.rashid10@gmail.com</a>
+    </section>
+
+    <footer>
+      © 2026 Humayra Rashid
+    </footer>
+  </div>
+
+</body>
+</html>
